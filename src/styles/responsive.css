@@ -1,0 +1,46 @@
+@media (max-width: 768px) {
+  main {
+    padding: 1.5rem;
+  }
+
+  .search-bar {
+    padding: 0.4rem 0.8rem;
+    gap: 0.5rem;
+  }
+
+  .search-bar img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .search-input {
+    font-size: 0.95rem;
+  }
+
+  .icon-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .search-card {
+    padding: 1.2rem;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .link {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}
