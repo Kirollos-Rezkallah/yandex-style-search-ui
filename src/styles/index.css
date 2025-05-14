@@ -83,11 +83,12 @@ main {
 }
 .link {
   color: #276eff;
-  font-size: 0.85rem;
+  font-size: 1rem;
+  font-weight: 600;
 }
 .link:focus,
 .link:hover {
-  text-decoration: underline;
+  color: #c92a2a;
 }
 .title {
   font-size: 1.1rem;
@@ -146,6 +147,18 @@ main {
   font-size: 1rem;
   padding: 0.4rem 2rem 0.4rem 0.5rem;
   color: #000;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-input:focus-visible {
+  outline-offset: 2px;
+
+  transition: outline 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+  box-shadow: none;
 }
 
 .clear-btn {
