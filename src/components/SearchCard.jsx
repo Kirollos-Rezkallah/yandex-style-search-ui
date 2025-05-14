@@ -14,7 +14,8 @@ const SearchCard = React.forwardRef(
             href={link}
             className="link"
             target="_blank"
-            rel="noopener noreferrer">
+            rel="noopener noreferrer"
+            aria-label={`Go to ${link}`}>
             {link}
           </a>
         </div>

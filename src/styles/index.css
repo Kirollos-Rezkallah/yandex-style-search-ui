@@ -21,6 +21,13 @@ a {
   color: inherit;
 }
 
+:focus-visible {
+  outline: 2px solid #276eff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(39, 110, 255, 0.2);
+  transition: outline 0.2s ease, box-shadow 0.2s ease;
+}
+
 /* Container */
 main {
   max-width: 800px;
