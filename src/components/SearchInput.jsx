@@ -1,6 +1,6 @@
 // import { useState } from "react";
 
-function SearchInput({ value, onChange, onClear }) {
+function SearchInput({ value, onChange, onClear, onKeyDown }) {
   return (
     <div className="search-bar" role="search">
       <img
@@ -14,6 +14,7 @@ function SearchInput({ value, onChange, onClear }) {
         placeholder="Search..."
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        onKeyDown={onKeyDown}
         aria-label="Search"
       />
 

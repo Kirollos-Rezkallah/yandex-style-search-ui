@@ -44,3 +44,23 @@
     font-size: 14px;
   }
 } */
+
+@media (max-width: 480px) {
+  .block {
+    width: 24px;
+    height: 24px;
+  }
+
+  .stone-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pharaoh {
+    width: 48px;
+  }
+
+  .celebration img {
+    width: 64px;
+  }
+}

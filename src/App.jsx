@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import SearchCard from "./components/SearchCard";
 import AdSearchCard from "./components/AdSearchCard";
-
+import PyramidGame from "./components/PyramidGame";
 import SearchInput from "./components/SearchInput";
 
 const mockResults = [
@@ -23,9 +23,27 @@ const mockResults = [
 function App() {
   const cardRefs = useRef([]);
   const [query, setQuery] = useState("");
-  // const filteredResults = mockResults.filter((r) =>
-  //   r.title.toLowerCase().includes(query.toLowerCase())
-  // );
+
+  const [gameTriggered, setGameTriggered] = useState(false);
+
+  const gameRef = useRef();
+
+  useEffect(() => {
+    if (gameTriggered && gameRef.current) {
+      gameRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [gameTriggered]);
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      const trimmed = query.trim().toLowerCase();
+      if (trimmed === "pharaoh" || trimmed === "фараон") {
+        setGameTriggered(true);
+      } else {
+        setGameTriggered(false);
+      }
+    }
+  };
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -67,18 +85,27 @@ function App() {
       <SearchInput
         value={query}
         onChange={setQuery}
-        onClear={() => setQuery("")}
+        onClear={() => {
+          setQuery("");
+          setGameTriggered(false);
+        }}
+        onKeyDown={handleKeyDown}
       />
 
       <h1
         className="fade-heading"
-        style={{
-          fontSize: "1.5rem",
-          marginBottom: "1.5rem",
-          animationDelay: "0ms",
-        }}>
+        style={{ fontSize: "1.5rem", marginBottom: "1.5rem" }}>
         Search Results
       </h1>
+
+      <div ref={gameRef}>{gameTriggered && <PyramidGame />}</div>
+
+      {!gameTriggered && (
+        <h2 className="pyramid-hint">
+          Type <strong>"pharaoh"</strong> or <strong>"фараон"</strong> and press
+          Enter to start the game
+        </h2>
+      )}
 
       {mockResults.map((result, i) => {
         const isAd = i === 1;
